@@ -5,9 +5,9 @@
 1. Complexity analysis
 
 ## Software and running instructions
-1. The source code is written in Java 10 and is called slidingWindow and resides in the src folder.
-1. Compilation instructions are written in the run.sh present in the root directory.
-1. Following imports are made : java.io.BufferedReader, java.io.BufferedWriter, java.io.FileNotFoundException, java.io.FileReader,          java.io.FileWriter, java.io.IOException, java.math.BigDecimal, java.util.HashMap, java.util.Iterator, java.util.Map;
+1. The source code is called slidingWindow written in Java 10 and resides in the src folder.
+1. Compilation instructions are written in the run.sh.
+1. Following imports are made : java.io.BufferedReader, java.io.BufferedWriter, java.io.FileNotFoundException, java.io.FileReader,java.io.FileWriter, java.io.IOException, java.math.BigDecimal, java.util.HashMap, java.util.Iterator, java.util.Map;
 
 ## Approach to the problem
 The given problem can be divided in two parts. First part is where we parse the input file to store in a hash map followed by the second part where we perform calculations using the sliding window approach.
@@ -18,11 +18,11 @@ The given problem can be divided in two parts. First part is where we parse the 
     1. While reading the input file line to line, the outer map was checked if it already contains the time hour key
     1. If the outer hash map did not contain the time hour key, a new hash map was created to insert the stock value.
     1. If the outer hash map did contain the time hour key, the same hatch map was fetched using get() and stock value was added into          the inner hash map.
-    1. Summarizing, two double hash maps was created, one to store the actual value and the other to store the predicted value.
+    1. Finally, two double hash maps was created, one to store the actual value and the other to store the predicted value.
 
 1. Performing calculations:
 
-    1. As stated a sliding window approach was used to compute the error at any given time. Considering the case where window size was          4, the first error was calculated by computing the average error across first four hours between actual and predicted value.            Similarly the second error was calculated by computing the average error cross second to fifth time hour. In case value for a            window is not available NA would be printed out in the average error.
+    1. A sliding window approach was used to compute the error at any given time. Considering the case where window size was          4, the first error was calculated by computing the average error across first four hours between actual and predicted value.            Similarly the second error was calculated by computing the average error cross second to fifth time hour. In case value for a            window is not available NA would be printed out in the average error.
     1. To compute the difference, iteration was performed on the predicted stock value hash map. So for every predicted stock value,            corresponding stock id was fetched from the same time hour from the actual stock value. This saved us iterating from the longer          actual stock value data set as prediction file is shorter than the actual file.
     1. A count was also initiated whenever a new window calculation was performed to account for varying number of data points where we        have both the actual stock value and predicted stock value.
     1. Finally, the value were appended to an instance of the string builder and written to a file.
@@ -37,4 +37,4 @@ Consider having N time hours and M stock ID values corresponding to each time ho
 1. While calculating the error, values are again looked up from the hash map which is O(N) for the outer map and O (M) for the inner map    where M is the lesser of length of actual values present to that of predicted values present.
 1. Writing the starting time, ending time of a window along with its average error takes approximately O(N) time.
 1. Hence overall time complexity is Max(O(N), O(M)).
-1. Space Complexity is O (N * P) where N is the number of time hours and P is the maximum length of stock id values across N time hours.
+1. Space Complexity is O (N * P) where N is the number of time hours and P is the length of stock id values for N time hours.
