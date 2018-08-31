@@ -10,7 +10,7 @@
 1. Following imports are made : java.io.BufferedReader, java.io.BufferedWriter, java.io.FileNotFoundException, java.io.FileReader,java.io.FileWriter, java.io.IOException, java.math.BigDecimal, java.util.HashMap, java.util.Iterator, java.util.Map;
 
 ## Approach to the problem
-The given problem can be divided in two parts. First part is where we parse the input file to store in a hash map followed by the second part where we perform calculations using the sliding window approach.
+The given problem can be divided in two parts. First part is where we parse the input file to store in a HashMap followed by the second part where we perform calculations using the sliding window approach.
 
 1. Reading the input file:
 
